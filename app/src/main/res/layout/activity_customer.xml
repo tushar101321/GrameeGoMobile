@@ -1,0 +1,231 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer"
+        android:textSize="18sp"
+        android:paddingBottom="6dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"/>
+
+    <!-- CONTENT AREA -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- TAB 1: SHOP -->
+        <ScrollView
+            android:id="@+id/blockShop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnRefreshShops"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh Shops" />
+
+                <TextView
+                    android:id="@+id/tvSelectedShop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Selected: none"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shops:"
+                    android:textStyle="bold"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvShops"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Products:"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"/>
+
+                <TextView
+                    android:id="@+id/tvCartShop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cart: 0 items"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- TAB 2: CHECKOUT -->
+        <ScrollView
+            android:id="@+id/blockCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Checkout"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvCheckoutShop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shop: none"
+                    android:paddingBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvCartCheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cart: 0 items"
+                    android:textStyle="bold"
+                    android:paddingBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/etContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact number"
+                    android:inputType="phone"/>
+
+                <EditText
+                    android:id="@+id/etVillage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Village / Address"
+                    android:inputType="text"/>
+
+                <Button
+                    android:id="@+id/btnUseMyLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use My Location"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tvLocationHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tip: If you're on emulator, set a GPS location in Extended Controls."
+                    android:textSize="12sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/etDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Estimated distance km (optional)"
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/etNeedBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Need by (optional ISO: 2026-01-30T18:30:00Z)"
+                    android:inputType="text"/>
+
+                <Button
+                    android:id="@+id/btnPlaceOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Place Order"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- TAB 3: ORDERS -->
+        <LinearLayout
+            android:id="@+id/blockOrders"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnRefreshOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Refresh My Orders"/>
+
+            <TextView
+                android:id="@+id/tvEmptyOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No orders found."
+                android:padding="10dp"
+                android:visibility="gone"/>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeOrders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav_bg"
+        app:itemIconTint="@color/bottom_nav_item_colors"
+        app:itemTextColor="@color/bottom_nav_item_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/customer_bottom_nav" />
+
+
+</LinearLayout>

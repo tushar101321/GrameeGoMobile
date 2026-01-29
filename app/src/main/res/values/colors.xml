@@ -1,0 +1,5 @@
+<resources>
+    <color name="bottom_nav_bg">#FFFFFF</color>
+    <color name="bottom_nav_selected">#000000</color>
+    <color name="bottom_nav_unselected">#777777</color>
+</resources>

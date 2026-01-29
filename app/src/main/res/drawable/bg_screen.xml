@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base solid color (prevents black flashes) -->
+    <item>
+        <color android:color="#FFFFFF"/>
+    </item>
+
+    <!-- Background image -->
+    <item>
+        <bitmap
+            android:src="@drawable/bg_map"
+            android:gravity="center"
+            android:tileMode="disabled" />
+    </item>
+
+    <!-- Light overlay so UI is readable -->
+    <item>
+        <color android:color="#26FFFFFF"/>
+    </item>
+
+</layer-list>
